@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.automation.restassured.Postdata">
+      <class name="com.automation.restassured.TokenAndDelete">
         <methods>
-          <include name="createData"/>
+          <include name="postAuthDelete"/>
         </methods>
-      </class> <!-- com.automation.restassured.Postdata -->
+      </class> <!-- com.automation.restassured.TokenAndDelete -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

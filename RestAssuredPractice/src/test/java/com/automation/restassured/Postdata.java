@@ -9,6 +9,7 @@ import static io.restassured.RestAssured.*;
 import org.testng.annotations.Test;
 
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 
 public class Postdata {
 	
@@ -28,10 +29,10 @@ public class Postdata {
         requestBody.put("additionalneeds", "Breakfast");
         
        
-	given()
+	String response = given()
 	.baseUri("https://restful-booker.herokuapp.com")
 	.contentType(ContentType.JSON)
-	.body(requestBody).log().all()
+	.body(requestBody)
 	
 	.when()
 	.post("/booking")
@@ -46,7 +47,9 @@ public class Postdata {
     .body("booking.bookingdates.checkin", equalTo("2026-09-18"))
     .body("booking.bookingdates.checkout", equalTo("2026-09-18"))
     .body("booking.additionalneeds", equalTo("Breakfast"))
-    .log().all();
+    .extract().response().asString();
+	
+	System.out.print(response);
 	
 	}
 	
